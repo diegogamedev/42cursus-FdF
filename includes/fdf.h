@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/13 14:41:10 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/21 13:56:41 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ typedef struct s_map
 	int			max_height_y;
 }	t_map;
 
+typedef struct s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+} t_data;
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win;
+	int		win_x;
+	int		win_y;
+	t_data	img;
+} t_mlx;
+
 //MACROS
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
@@ -56,5 +74,11 @@ int			ft_atoi_base(char *str, char *base);
 t_vector	**init_coordinates(int width, int depth);
 int			get_width(t_list *head);
 void		remove_breakline(char *text);
+void		put_pixel_in_image(t_data *data, int x, int y, int color);
+int			create_trgb(int t, int r, int g, int b);
+t_vector	subtract(t_vector src, t_vector dst);
+float		dot_product(t_vector src, t_vector dst);
+t_vector	divide(t_vector src, float num);
+float		magnitude(t_vector vec);
 
 #endif

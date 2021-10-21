@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:17:24 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/18 12:11:03 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/21 13:57:59 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ void	print_map(t_map *map)
 	int	z;
 
 	printf("Printing the map:\n");
-	printf("Width: %d\nLength: %d\nHeight Variation: (between %d and %d)\n", map->width_x, map->length_z, map->min_height_y, map->max_height_y);
 	x = 0;
-	while(x <= map->length_z)
+	while (x <= map->length_z)
 	{
 		z = 0;
-		while(z <= map->width_x)
+		while (z <= map->width_x)
 		{
 			printf("%d ", map->coords[z][x].y);
 			z++;

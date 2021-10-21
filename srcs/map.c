@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/18 12:07:02 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/21 13:48:37 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	add_vector(char *text, int x, int z, t_map *map)
 		map->coords[x][z].color = -1;
 	}
 	update_map_constants(x, map->coords[x][z].y, z, map);
-	//printf("coords added: %d, %d, %d\n", x, map->coords[x][z].y, z);
 }
 
 t_map	*init_map(t_list *prms)
@@ -96,7 +95,6 @@ t_list	*list_params(int fd)
 		remove_breakline(line);
 		if (line_length != ft_strlen(line))
 		{
-			printf("%d is different of %d", line_length, ft_strlen(line));
 			ft_lstclear(&list, free);
 			free(line);
 			return (NULL);

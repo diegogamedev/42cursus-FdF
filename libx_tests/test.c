@@ -133,7 +133,10 @@ void	bresenham_draw_3d_line(int x1, int y1, int z1, int x2, int y2, int z2, t_da
 
 int draw(t_mlx *data)
 {
-	bresenham_draw_3d_line(0, 0, 0, 640, 480, 0, &data->img);
+	bresenham_draw_3d_line(20, 20, 20, 50, 20, 50, &data->img);
+	bresenham_draw_3d_line(50, 20, 20, 50, 50, 50, &data->img);
+	bresenham_draw_3d_line(50, 50, 20, 20, 50, 50, &data->img);
+	bresenham_draw_3d_line(20, 50, 20, 20, 20, 50, &data->img);
 	mlx_put_image_to_window(data->mlx_ptr, data->win, data->img.img, 0, 0);
 	return (0);
 }
