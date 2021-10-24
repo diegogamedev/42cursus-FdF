@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:13:00 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/21 14:00:34 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/23 13:04:24 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ int	get_width(t_list *head)
 	return (width);
 }
 
-t_vector	**init_coordinates(int width, int height)
+t_vec3	**init_coordinates(int width, int height)
 {
-	t_vector	**coordinates;
-	int			i;
-	int			j;
+	t_vec3	**coordinates;
+	int		i;
+	int		j;
 
-	coordinates = malloc(width * sizeof(t_vector *));
+	coordinates = malloc(width * sizeof(t_vec3 *));
 	if (!coordinates)
 		return (NULL);
 	i = 0;
 	while (i < width)
 	{
-		coordinates[i] = malloc(height * sizeof(t_vector));
+		coordinates[i] = malloc(height * sizeof(t_vec3));
 		if (!coordinates[i])
 			return (NULL);
 		j = 0;

@@ -6,32 +6,12 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:17:24 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/21 13:57:59 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/23 12:43:47 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include <stdio.h>
-
-void	print_map(t_map *map)
-{
-	int	x;
-	int	z;
-
-	printf("Printing the map:\n");
-	x = 0;
-	while (x <= map->length_z)
-	{
-		z = 0;
-		while (z <= map->width_x)
-		{
-			printf("%d ", map->coords[z][x].y);
-			z++;
-		}
-		printf("\n");
-		x++;
-	}
-}
 
 void	free_map(t_map *map, int height)
 {
@@ -53,7 +33,7 @@ void	fdf_init(int fd)
 		write(1, "Bad format or allocation error\n", 32);
 	else
 	{
-		print_map(map);
+		init_mlx(map);
 		free_map(map, map->length_z);
 	}
 }
