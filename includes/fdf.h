@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/23 15:01:08 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:36:10 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_vec3
 
 typedef struct s_vec2
 {
-	int x;
-	int y;
-	int color;
+	int	x;
+	int	y;
+	int	color;
 }	t_vec2;
 
 typedef struct s_map
@@ -54,7 +54,7 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-} t_data;
+}	t_data;
 
 typedef struct s_mlx
 {
@@ -64,7 +64,7 @@ typedef struct s_mlx
 	int		win_y;
 	t_data	img;
 	t_map	*map;
-} t_mlx;
+}	t_mlx;
 
 //MACROS
 # ifndef BUFFER_SIZE
@@ -85,10 +85,11 @@ int			get_width(t_list *head);
 void		remove_breakline(char *text);
 void		put_pixel_in_image(t_data *i, t_vec2 v);
 int			create_trgb(int t, int r, int g, int b);
-t_vec3		subtract(t_vec3 src, t_vec3 dst);
-float		dot_product(t_vec3 src, t_vec3 dst);
-t_vec3		divide(t_vec3 src, float num);
-float		magnitude(t_vec3 vec);
 t_vec2		*get_projection(t_vec3 start, t_vec3 end);
+float		absolute(float nbr);
+float		max(float a, float b);
+float		min(float a, float b);
+void		scale(t_mlx *mlx_data, t_vec2 *start, t_vec2 *end);
+void		translate(t_vec2 *s, t_vec2 *e, float mv_x, float mv_y);
 
 #endif

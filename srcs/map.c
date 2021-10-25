@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/23 14:58:22 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:00:50 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ t_list	*list_params(int fd)
 {
 	char	*line;
 	t_list	*list;
-	size_t	line_length;
+	int		line_length;
 
 	line = get_next_line(fd);
 	remove_breakline(line);
-	line_length = ft_strlen(line);
+	line_length = count_words(line, ' ');
 	list = ft_lstnew(ft_strdup(line));
 	free(line);
 	while (1)
@@ -93,7 +93,7 @@ t_list	*list_params(int fd)
 		if (!line)
 			break ;
 		remove_breakline(line);
-		if (line_length != ft_strlen(line))
+		if (line_length != count_words(line, ' '))
 		{
 			ft_lstclear(&list, free);
 			free(line);
