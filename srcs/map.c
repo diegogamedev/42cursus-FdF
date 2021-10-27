@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/24 13:00:50 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/26 21:04:06 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	add_vector(char *text, int x, int z, t_map *map)
 	char		**split;
 	int			i;
 
+	i = 0;
 	map->coords[x][z].x = x;
 	map->coords[x][z].z = z;
 	if (ft_strrchr(text, ','))

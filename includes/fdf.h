@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/25 13:36:10 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/26 21:32:19 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@
 //DATA STRUCTURES
 typedef struct s_vec3
 {
-	int	x;
-	int	y;
-	int	z;
-	int	color;
+	float	x;
+	float	y;
+	float	z;
+	int		color;
 }	t_vec3;
 
 typedef struct s_vec2
 {
-	int	x;
-	int	y;
-	int	color;
+	float	x;
+	float	y;
+	int		color;
 }	t_vec2;
 
 typedef struct s_map
@@ -70,6 +70,9 @@ typedef struct s_mlx
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
 # endif
+# ifndef M_PI
+#  define M_PI (3.14159265358979323846)
+# endif
 
 //FUNCTIONS
 char		*remove_spaces(const char *str);
@@ -91,5 +94,8 @@ float		max(float a, float b);
 float		min(float a, float b);
 void		scale(t_mlx *mlx_data, t_vec2 *start, t_vec2 *end);
 void		translate(t_vec2 *s, t_vec2 *e, float mv_x, float mv_y);
+void		rotate_x(t_vec3 *start, t_vec3 *end, double rad_ang);
+void		rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang);
+void		rotate_z(t_vec3 *start, t_vec3 *end, double rad_ang);
 
 #endif

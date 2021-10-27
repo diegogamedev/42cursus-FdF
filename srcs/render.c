@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:48:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/25 14:01:55 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/27 20:12:07 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	put_pixel_in_image(t_data *i, t_vec2 v)
 {
 	char	*dst;
 
-	dst = i->addr + (v.y * i->line_length + v.x * (i->bits_per_pixel / 8));
+	dst = i->addr + ((int)v.y * i->line_length + (int)v.x * (i->bits_per_pixel / 8));
 	if (v.color == -1)
 		*(unsigned int *)dst = create_trgb(0, 255, 0, 0);
 	else
@@ -42,7 +42,7 @@ void	bresenham(t_vec2 start, t_vec2 end, t_mlx *mlx)
 		i_line++;
 		start.color = create_trgb(0, 255, 255, 255);
 		if (start.x && start.y && start.x < mlx->win_x && start.y < mlx->win_y)
-			mlx_pixel_put(mlx->mlx_ptr,mlx->win, start.x, start.y, start.color);
+			put_pixel_in_image(&mlx->img, start);
 		start.x += x_step;
 		start.y += y_step;
 	}
@@ -52,12 +52,14 @@ void	render(t_mlx *mlx, t_vec3 start, t_vec3 end)
 {
 	t_vec2	*temp;
 
-	printf("points: (%d, %d, %d)", start.x, start.y, start.z);
-	printf(" and (%d, %d, %d)\n", end.x, end.y, end.z);
+	rotate_x(&start, &end, 0 * M_PI / 180);
+	rotate_y(&start, &end, 0 * M_PI / 180);
+	rotate_z(&start, &end, 0 * M_PI / 180);
 	temp = get_projection(start, end);
 	scale(mlx, &temp[0], &temp[1]);
 	translate(&temp[0], &temp[1], mlx->win_x / 2, mlx->win_y / 2);
 	bresenham(temp[0], temp[1], mlx);
+	free(temp);
 }
 
 int	draw(t_mlx *data)
@@ -81,7 +83,7 @@ int	draw(t_mlx *data)
 		}
 		z++;
 	}
-	//mlx_put_image_to_window(data->mlx_ptr, data->win, data->img.img, 0, 0);
+	mlx_put_image_to_window(data->mlx_ptr, data->win, data->img.img, 0, 0);
 	return (1);
 }
 
@@ -90,10 +92,10 @@ void	init_mlx(t_map *map)
 	t_mlx	data;
 
 	data.mlx_ptr = mlx_init();
-	data.win = mlx_new_window(data.mlx_ptr, 640, 480, "fdf");
-	data.win_x = 640;
-	data.win_y = 480;
-	data.img.img = mlx_new_image(data.mlx_ptr, 640, 480);
+	data.win = mlx_new_window(data.mlx_ptr, 1024, 720, "fdf");
+	data.win_x = 1024;
+	data.win_y = 720;
+	data.img.img = mlx_new_image(data.mlx_ptr, 1024, 720);
 	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel, \
 			&data.img.line_length, &data.img.endian);
 	data.map = map;

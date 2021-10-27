@@ -6,12 +6,11 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:17:24 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/23 12:43:47 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/10/26 21:11:02 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 void	free_map(t_map *map, int height)
 {
@@ -55,8 +54,8 @@ int	main(int argc, char **argv)
 				write(1, "Failed to open file", 20);
 			else
 				fdf_init(fd);
+			close(fd);
 		}
 	}
-	close(fd);
 	return (1);
 }
