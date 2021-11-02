@@ -6,22 +6,11 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:17:24 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/26 21:11:02 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:50:58 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-void	free_map(t_map *map, int height)
-{
-	while (height)
-	{
-		free(map->coords[height]);
-		height--;
-	}
-	free(map->coords);
-	free(map);
-}
 
 void	fdf_init(int fd)
 {
@@ -31,10 +20,7 @@ void	fdf_init(int fd)
 	if (!map)
 		write(1, "Bad format or allocation error\n", 32);
 	else
-	{
 		init_mlx(map);
-		free_map(map, map->length_z);
-	}
 }
 
 int	main(int argc, char **argv)

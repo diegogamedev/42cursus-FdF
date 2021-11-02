@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_extensions.c                                  :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 11:51:35 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 10:46:24 by dienasci         ###   ########.fr       */
+/*   Created: 2021/10/28 14:09:06 by dienasci          #+#    #+#             */
+/*   Updated: 2021/11/02 19:22:23 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-float	absolute(float nbr)
+void	free_mlx(t_mlx *mlx)
 {
-	if (nbr < 0)
-		return (-nbr);
-	else
-		return (nbr);
+	free_map(mlx->map, mlx->map->length_z);
+	free(mlx->img);
+	mlx_destroy_image(mlx->mlx_ptr, mlx->img->img);
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win);
+	mlx_destroy_display(mlx->mlx_ptr);
+	write(1, "FdF terminated, have a nice day!\n", 34);
 }
 
-float	max(float a, float b)
+void	free_map(t_map *map, int height)
 {
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-
-float	min(float a, float b)
-{
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	while (height)
+	{
+		free(map->coords[height]);
+		height--;
+	}
+	free(map->coords);
+	free(map);
 }

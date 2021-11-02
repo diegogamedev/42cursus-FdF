@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:49:06 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/25 19:16:31 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/02 11:02:53 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	rotate_x(t_vec3 *start, t_vec3 *end, double rad_ang)
 {
 	float	a;
 	float	b;
+
 	a = start->z * cos(rad_ang) - start->y * sin(rad_ang);
 	b = start->z * sin(rad_ang) + start->y * cos(rad_ang);
 	start->y = a;
@@ -54,10 +55,11 @@ void	rotate_x(t_vec3 *start, t_vec3 *end, double rad_ang)
 	end->z = b;
 }
 
-void rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang)
+void	rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang)
 {
-	float a;
-	float b;
+	float	a;
+	float	b;
+
 	a = start->x * cos(rad_ang) + start->z * sin(rad_ang);
 	b = start->x * sin(rad_ang) + start->z * cos(rad_ang);
 	start->x = a;
@@ -68,10 +70,11 @@ void rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang)
 	end->z = b;
 }
 
-void rotate_z(t_vec3 *start, t_vec3 *end, double rad_ang)
+void	rotate_z(t_vec3 *start, t_vec3 *end, double rad_ang)
 {
-	float a;
-	float b;
+	float	a;
+	float	b;
+
 	a = start->x * cos(rad_ang) - start->y * sin(rad_ang);
 	b = start->x * sin(rad_ang) + start->y * cos(rad_ang);
 	start->x = a;

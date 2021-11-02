@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/26 21:04:06 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/02 12:04:07 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	add_vector(char *text, int x, int z, t_map *map)
 	else
 	{
 		map->coords[x][z].y = ft_atoi(text);
-		map->coords[x][z].color = -1;
+		map->coords[x][z].color = create_trgb(0, 255, 255, 255);
 	}
 	update_map_constants(x, map->coords[x][z].y, z, map);
 }
@@ -60,6 +60,8 @@ t_map	*init_map(t_list *prms)
 	if (!prms || !map)
 		return (NULL);
 	map->coords = init_coordinates(get_width(prms), ft_lstsize(prms));
+	map->length_z = 0;
+	map->width_x = 0;
 	index[1] = 0;
 	while (prms)
 	{

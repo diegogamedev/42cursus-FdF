@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/26 21:32:19 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:42:44 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@
 //DATA STRUCTURES
 typedef struct s_vec3
 {
-	float	x;
-	float	y;
-	float	z;
+	double	x;
+	double	y;
+	double	z;
 	int		color;
 }	t_vec3;
 
 typedef struct s_vec2
 {
-	float	x;
-	float	y;
+	double	x;
+	double	y;
 	int		color;
 }	t_vec2;
 
@@ -62,7 +62,7 @@ typedef struct s_mlx
 	void	*win;
 	int		win_x;
 	int		win_y;
-	t_data	img;
+	t_data	*img;
 	t_map	*map;
 }	t_mlx;
 
@@ -97,5 +97,9 @@ void		translate(t_vec2 *s, t_vec2 *e, float mv_x, float mv_y);
 void		rotate_x(t_vec3 *start, t_vec3 *end, double rad_ang);
 void		rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang);
 void		rotate_z(t_vec3 *start, t_vec3 *end, double rad_ang);
+void		free_map(t_map *map, int height);
+void		free_mlx(t_mlx *mlx);
+int			key_events(int keycode, t_mlx *mlx);
+int			lerp_color(int clr_a, int clr_b, float f);
 
 #endif
