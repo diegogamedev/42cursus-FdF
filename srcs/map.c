@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 12:04:07 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:08:04 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,31 @@ void	add_vector(char *text, int x, int z, t_map *map)
 	update_map_constants(x, map->coords[x][z].y, z, map);
 }
 
+t_map	*alloc_map(void)
+{
+	t_map	*map;
+
+	map = (t_map *)malloc(sizeof(*map));
+	if (!map)
+		return (NULL);
+	map->coords = NULL;
+	map->length_z = 0;
+	map->width_x = 0;
+	map->max_height_y = 0;
+	map->min_height_y = 0;
+	return (map);
+}
+
 t_map	*init_map(t_list *prms)
 {
 	t_map	*map;
 	char	**split;
 	int		index[2];
 
-	map = (t_map *)malloc(sizeof(*map));
+	map = alloc_map();
 	if (!prms || !map)
 		return (NULL);
 	map->coords = init_coordinates(get_width(prms), ft_lstsize(prms));
-	map->length_z = 0;
-	map->width_x = 0;
 	index[1] = 0;
 	while (prms)
 	{
@@ -72,6 +85,7 @@ t_map	*init_map(t_list *prms)
 			add_vector(split[index[0]], index[0], index[1], map);
 			index[0]++;
 		}
+		free_2d_array(split, count_words(prms->content, ' '));
 		prms = ft_lstnext(prms);
 		index[1]++;
 	}
@@ -105,5 +119,5 @@ t_list	*list_params(int fd)
 		ft_lstadd_back(&list, ft_lstnew(ft_strdup(line)));
 		free(line);
 	}
-	return (list);
+	return (&list);
 }

@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 14:42:44 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:14:52 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ typedef struct s_data
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	int		bpp;
+	int		len;
+	int		end;
 }	t_data;
 
 typedef struct s_mlx
@@ -62,7 +62,7 @@ typedef struct s_mlx
 	void	*win;
 	int		win_x;
 	int		win_y;
-	t_data	*img;
+	t_data	*i;
 	t_map	*map;
 }	t_mlx;
 
@@ -101,5 +101,6 @@ void		free_map(t_map *map, int height);
 void		free_mlx(t_mlx *mlx);
 int			key_events(int keycode, t_mlx *mlx);
 int			lerp_color(int clr_a, int clr_b, float f);
+void		free_2d_array(char **split, int size);
 
 #endif

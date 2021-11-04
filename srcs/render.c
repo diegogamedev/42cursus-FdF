@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:48:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 14:50:07 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/03 21:04:03 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	put_pixel_in_image(t_data *i, t_vec2 v)
 {
 	char	*dst;
 
-	dst = i->addr + ((int)v.y * i->line_length + (int)v.x * \
-	(i->bits_per_pixel / 8));
+	dst = i->addr + ((int)v.y * i->len + (int)v.x * (i->bpp / 8));
 	*(unsigned int *)dst = v.color;
 }
 
@@ -43,7 +42,7 @@ void	bresenham(t_vec2 start, t_vec2 end, t_mlx *mlx)
 		start.color = lerp_color(t_color, end.color, i_line / max_steps);
 		if (start.x >= 0 && start.y >= 0 && start.x < mlx->win_x \
 		&& start.y < mlx->win_y)
-			put_pixel_in_image(mlx->img, start);
+			put_pixel_in_image(mlx->i, start);
 		start.x += x_step;
 		start.y += y_step;
 	}
@@ -84,25 +83,24 @@ int	draw(t_mlx *data)
 		}
 		z++;
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win, data->img->img, 0, 0);
+	mlx_put_image_to_window(data->mlx_ptr, data->win, data->i->img, 0, 0);
 	return (1);
 }
 
 void	init_mlx(t_map *map)
 {
-	t_mlx	data;
+	t_mlx	a;
 
-	data.mlx_ptr = mlx_init();
-	data.win = mlx_new_window(data.mlx_ptr, 1024, 720, "fdf");
-	data.win_x = 1024;
-	data.win_y = 720;
-	data.img = malloc(sizeof(*data.img));
-	data.img->img = mlx_new_image(data.mlx_ptr, 1024, 720);
-	data.img->addr = mlx_get_data_addr(data.img->img, &data.img->bits_per_pixel\
-	,&data.img->line_length, &data.img->endian);
-	data.map = map;
-	draw(&data);
-	mlx_expose_hook(data.win, draw, &data);
-	mlx_key_hook(data.win, key_events, &data);
-	mlx_loop(data.mlx_ptr);
+	a.mlx_ptr = mlx_init();
+	a.win = mlx_new_window(a.mlx_ptr, 1024, 720, "fdf");
+	a.win_x = 1024;
+	a.win_y = 720;
+	a.i = malloc(sizeof(*a.i));
+	a.i->img = mlx_new_image(a.mlx_ptr, 1024, 720);
+	a.i->addr = mlx_get_data_addr(a.i->img, &a.i->bpp, &a.i->len, &a.i->end);
+	a.map = map;
+	draw(&a);
+	mlx_expose_hook(a.win, draw, &a);
+	mlx_key_hook(a.win, key_events, &a);
+	mlx_loop(a.mlx_ptr);
 }
