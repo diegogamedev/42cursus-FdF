@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:13:00 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/03 15:29:41 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/04 11:23:39 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,15 @@ void	remove_breakline(char *text)
 		text[index - 1] = '\0';
 }
 
-void	free_2d_array(char **split, int size)
+void	free_2d_array(char **split)
 {
-	while (size)
+	int index;
+
+	index = 0;
+	while (split[index])
 	{
-		free(split[size]);
-		size--;
+		free(split[index]);
+		index++;
 	}
 	free(split);
 }

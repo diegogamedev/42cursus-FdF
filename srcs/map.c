@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/04 10:08:04 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:58:12 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,24 +85,22 @@ t_map	*init_map(t_list *prms)
 			add_vector(split[index[0]], index[0], index[1], map);
 			index[0]++;
 		}
-		free_2d_array(split, count_words(prms->content, ' '));
+		free_2d_array(split);
 		prms = ft_lstnext(prms);
 		index[1]++;
 	}
-	ft_lstclear(&prms, free);
 	return (map);
 }
 
-t_list	*list_params(int fd)
+void	list_params(int fd, t_list **list)
 {
 	char	*line;
-	t_list	*list;
 	int		line_length;
 
 	line = get_next_line(fd);
 	remove_breakline(line);
 	line_length = count_words(line, ' ');
-	list = ft_lstnew(ft_strdup(line));
+	*list = ft_lstnew(ft_strdup(line));
 	free(line);
 	while (1)
 	{
@@ -112,12 +110,11 @@ t_list	*list_params(int fd)
 		remove_breakline(line);
 		if (line_length != count_words(line, ' '))
 		{
-			ft_lstclear(&list, free);
+			ft_lstclear(list, free);
 			free(line);
-			return (NULL);
+			return ;
 		}
-		ft_lstadd_back(&list, ft_lstnew(ft_strdup(line)));
+		ft_lstadd_back(list, ft_lstnew(ft_strdup(line)));
 		free(line);
 	}
-	return (&list);
 }

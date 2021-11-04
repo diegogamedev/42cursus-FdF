@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/03 20:14:52 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/04 11:31:31 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char		*get_next_line(int fd);
 t_map		*init_map(t_list *prms);
 void		init_mlx(t_map *map);
 void		add_vector(char *text, int x, int z, t_map *map);
-t_list		*list_params(int fd);
+void		list_params(int fd, t_list **list);
 t_list		*ft_lstnext(t_list *current);
 int			ft_atoi_base(char *str, char *base);
 t_vec3		**init_coordinates(int width, int depth);
@@ -97,10 +97,10 @@ void		translate(t_vec2 *s, t_vec2 *e, float mv_x, float mv_y);
 void		rotate_x(t_vec3 *start, t_vec3 *end, double rad_ang);
 void		rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang);
 void		rotate_z(t_vec3 *start, t_vec3 *end, double rad_ang);
-void		free_map(t_map *map, int height);
+void		free_map(t_map *map, int width);
 void		free_mlx(t_mlx *mlx);
 int			key_events(int keycode, t_mlx *mlx);
 int			lerp_color(int clr_a, int clr_b, float f);
-void		free_2d_array(char **split, int size);
+void		free_2d_array(char **split);
 
 #endif

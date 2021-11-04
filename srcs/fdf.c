@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:17:24 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 14:50:58 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:58:31 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 void	fdf_init(int fd)
 {
 	t_map	*map;
+	t_list	*list;
 
-	map = init_map(list_params(fd));
+	list_params(fd, &list);
+	map = init_map(list);
+	ft_lstclear(&list, free);
 	if (!map)
 		write(1, "Bad format or allocation error\n", 32);
 	else
