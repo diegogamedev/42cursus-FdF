@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:39:15 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/04 10:58:12 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/05 20:44:43 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_map	*init_map(t_list *prms)
 		prms = ft_lstnext(prms);
 		index[1]++;
 	}
+	center_to_origin(map);
 	return (map);
 }
 

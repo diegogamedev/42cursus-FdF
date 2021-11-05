@@ -6,12 +6,12 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:49:06 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 11:02:53 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/05 20:45:29 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include <math.h>
+#include <stdio.h>
 
 void	scale(t_mlx *mlx_data, t_vec2 *start, t_vec2 *end)
 {
@@ -19,11 +19,11 @@ void	scale(t_mlx *mlx_data, t_vec2 *start, t_vec2 *end)
 	float	y;
 	float	factor;
 
-	x = mlx_data->win_x / mlx_data->map->length_z;
-	y = mlx_data->win_y / mlx_data->map->width_x;
+	x = mlx_data->win_x / mlx_data->map->width_x;
+	y = mlx_data->win_y / mlx_data->map->max_height_y;
 	factor = min(x, y);
-	if (factor < 4)
-		factor = 2;
+	if(factor < 4)
+		factor = 1.5;
 	else
 		factor /= 2;
 	start->x *= factor;

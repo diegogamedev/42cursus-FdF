@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:51:35 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 10:46:24 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/05 20:44:02 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,23 @@ float	min(float a, float b)
 		return (a);
 	else
 		return (b);
+}
+
+void	center_to_origin(t_map *map)
+{
+	int x;
+	int z;
+
+	z = 0;
+	while (z < map->length_z)
+	{
+		x = 0;
+		while (x < map->width_x)
+		{
+			map->coords[x][z].x -= map->width_x / 2;
+			map->coords[x][z].z -= map->length_z / 2;
+			x++;
+		}
+		z++;
+	}
 }
