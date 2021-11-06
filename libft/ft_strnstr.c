@@ -6,11 +6,11 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 21:19:53 by dienasci          #+#    #+#             */
-/*   Updated: 2021/10/05 12:46:43 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/08/17 09:30:00 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

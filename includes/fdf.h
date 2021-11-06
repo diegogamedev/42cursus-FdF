@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/05 20:44:32 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/05 20:54:20 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <mlx.h>
+# include "../mlx_linux/mlx.h"
 # include "../includes/libft.h"
 
 //DATA STRUCTURES
