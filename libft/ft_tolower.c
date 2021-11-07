@@ -6,13 +6,13 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 21:20:08 by dienasci          #+#    #+#             */
-/*   Updated: 2021/08/17 09:30:03 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:32:27 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int	c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + ('a' - 'A' ));

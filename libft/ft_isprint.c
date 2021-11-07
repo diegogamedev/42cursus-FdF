@@ -6,13 +6,13 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 21:04:20 by dienasci          #+#    #+#             */
-/*   Updated: 2021/08/17 09:29:39 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:32:19 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int	c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c < 127)
 		return (1);

@@ -6,20 +6,20 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:35:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/06 22:16:39 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:31:23 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vec2 *get_projection(t_vec3 s, t_vec3 e, t_mlx *mlx, unsigned char proj)
+t_vec2	*get_projection(t_vec3 s, t_vec3 e, t_mlx *mlx, unsigned char proj)
 {
-	if(proj == 0)
-		return get_isometric(s, e);
-	else if(proj == 1)
-		return get_perspective(s, e, mlx);
+	if (proj == 0)
+		return (get_isometric(s, e));
+	else if (proj == 1)
+		return (get_perspective(s, e, mlx));
 	else
-		return NULL;
+		return (NULL);
 }
 
 t_vec2	*get_isometric(t_vec3 start, t_vec3 end)
@@ -43,7 +43,7 @@ t_vec2	*get_perspective(t_vec3 start, t_vec3 end, t_mlx *mlx)
 	double	plane;
 
 	rotate_x(&start, &end, 3 * (-45 * DEG_2_RAD));
-	screen = malloc(sizeof(*screen) * 2);;
+	screen = malloc(sizeof(*screen) * 2);
 	plane = max(max(mlx->map->max_height_y, mlx->map->min_height_y), \
 	max(mlx->map->width_x, mlx->map->length_z));
 	w = start.z + plane;

@@ -10,7 +10,7 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBS = -lm -lbsd -lmlx -lXext -lX11
 
-INCLUDE_PATH = includes
+INCLUDE_PATH = includes/
 
 SRCS = srcs/color.c srcs/fdf.c \
 	srcs/free.c srcs/ft_atoi_base.c \
@@ -58,6 +58,17 @@ fclean: clean
 re: fclean all
 
 bonus: all
+
+norm:
+	norminette $(INCLUDE_PATH) $(LIBFT) srcs/
+
+instructions:
+	@printf "\n$(CY)Usage: ./fdf [valid fdf file] (check project pdf for more info about fdf files)\n"
+	@printf "$(CY)Use WASD to move the camera on the x and y axis\n"
+	@printf "$(CY)Use Left Shift and Left Control to move the camera on the z axis\n"
+	@printf "$(CY)Use Q and E to perform a yaw on the projection\n"
+	@printf "$(CY)Use Left and Right arrows to perform a roll on the projection\n"
+	@printf "$(CY)Use Up and Down arrows to perform a pitch on the projection\n\n"
 
 feiradafruta:
 		@echo "...........................*VV*:.................::..........*.................:*VMMV*............................"

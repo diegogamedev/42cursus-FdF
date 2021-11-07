@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 22:35:22 by dienasci          #+#    #+#             */
-/*   Updated: 2021/08/17 14:45:01 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:33:38 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct s_list
 int		ft_atoi(const char *str);
 void	ft_bzero(void	*s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-int		ft_isalnum(int	c);
-int		ft_isalpha(int	c);
-int		ft_isascii(int	c);
-int		ft_isdigit(int	c);
-int		ft_isprint(int	c);
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
 char	*ft_itoa(int n);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -63,8 +63,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_tolower(int	c);
-int		ft_toupper(int	c);
-int	    count_words(const char *str, char charset);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+int		count_words(const char *str, char charset);
 
 #endif

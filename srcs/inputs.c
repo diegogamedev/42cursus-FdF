@@ -6,15 +6,14 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:18:47 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:14:27 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:30:35 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include "../includes/key.h"
-#include <stdio.h>
 
-static void params_rotate(int keycode, t_mlx *mlx)
+static void	params_rotate(int keycode, t_mlx *mlx)
 {
 	if (keycode == Q)
 		mlx->params->yaw += 5 * DEG_2_RAD;
@@ -30,15 +29,15 @@ static void params_rotate(int keycode, t_mlx *mlx)
 		mlx->params->roll += 5 * DEG_2_RAD;
 }
 
-static void params_zoom(int keycode, t_mlx *mlx)
+static void	params_zoom(int keycode, t_mlx *mlx)
 {
-	if(keycode == LSHIFT)
+	if (keycode == LSHIFT)
 		mlx->params->scale_factor += 5;
 	if (keycode == LCTRL)
 		mlx->params->scale_factor -= 5;
 }
 
-static void params_translate(int keycode, t_mlx *mlx)
+static void	params_translate(int keycode, t_mlx *mlx)
 {
 	if (keycode == W)
 		mlx->params->trans_y += 5;
@@ -50,7 +49,7 @@ static void params_translate(int keycode, t_mlx *mlx)
 		mlx->params->trans_x += 5;
 }
 
-int key_events(int keycode, t_mlx *mlx)
+int	key_events(int keycode, t_mlx *mlx)
 {
 	if (keycode == ESCAPE)
 		free_mlx(mlx);
@@ -58,8 +57,9 @@ int key_events(int keycode, t_mlx *mlx)
 		params_translate(keycode, mlx);
 	if (keycode == LSHIFT || keycode == LCTRL)
 		params_zoom(keycode, mlx);
-	if (keycode == Q || keycode == E || keycode == UP  || keycode == DOWN || \
-	keycode == LEFT || keycode == RIGHT)
+	if (keycode == Q || keycode == E || keycode == UP || keycode == DOWN)
+		params_rotate(keycode, mlx);
+	if (keycode == LEFT || keycode == RIGHT)
 		params_rotate(keycode, mlx);
 	if (keycode == TAB)
 		mlx->params->projection = !mlx->params->projection;
