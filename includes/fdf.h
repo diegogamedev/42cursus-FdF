@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:25:05 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/06 22:23:39 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:13:09 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ typedef struct s_data
 
 typedef struct s_params
 {
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
+	double			roll;
+	double			pitch;
+	double			yaw;
 	unsigned char	projection;
 	float			scale_factor;
 	float			trans_x;

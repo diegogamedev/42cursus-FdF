@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:48:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:06:18 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:16:17 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	render(t_mlx *mlx, t_vec3 start, t_vec3 end)
 {
 	t_vec2	*temp;
 
-	rotate_x(&start, &end, mlx->params->rot_x);
-	rotate_y(&start, &end, mlx->params->rot_y);
-	rotate_z(&start, &end, mlx->params->rot_z);
+	rotate_x(&start, &end, mlx->params->pitch);
+	rotate_y(&start, &end, mlx->params->roll);
+	rotate_z(&start, &end, mlx->params->yaw);
 	temp = get_projection(start, end, mlx, mlx->params->projection);
 	scale(mlx->params->scale_factor, &temp[0], &temp[1]);
 	translate(&temp[0], &temp[1], mlx->params->trans_x, mlx->params->trans_y);

@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 22:02:42 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:05:46 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:14:53 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ float	factor_fit_screen(t_mlx *mlx)
 void	init_params(t_mlx *mlx)
 {
 	mlx->params->projection = 0;
-	mlx->params->rot_x = 0 * DEG_2_RAD;
-	mlx->params->rot_y = 0 * DEG_2_RAD;
-	mlx->params->rot_z = 0 * DEG_2_RAD;
+	mlx->params->roll = 0 * DEG_2_RAD;
+	mlx->params->pitch = 0 * DEG_2_RAD;
+	mlx->params->yaw = 0 * DEG_2_RAD;
 	mlx->params->scale_factor = factor_fit_screen(mlx);
 	mlx->params->trans_x = mlx->win_x / 2;
 	mlx->params->trans_y = mlx->win_y / 2;

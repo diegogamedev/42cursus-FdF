@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:18:47 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:05:29 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:14:27 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@
 static void params_rotate(int keycode, t_mlx *mlx)
 {
 	if (keycode == Q)
-		mlx->params->rot_z += 5 * DEG_2_RAD;
+		mlx->params->yaw += 5 * DEG_2_RAD;
 	if (keycode == E)
-		mlx->params->rot_z -= 5 * DEG_2_RAD;
+		mlx->params->yaw -= 5 * DEG_2_RAD;
 	if (keycode == UP)
-		mlx->params->rot_y -= 5 * DEG_2_RAD;
+		mlx->params->pitch -= 5 * DEG_2_RAD;
 	if (keycode == DOWN)
-		mlx->params->rot_y += 5 * DEG_2_RAD;
+		mlx->params->pitch += 5 * DEG_2_RAD;
 	if (keycode == LEFT)
-		mlx->params->rot_x -= 5 * DEG_2_RAD;
+		mlx->params->roll -= 5 * DEG_2_RAD;
 	if (keycode == RIGHT)
-		mlx->params->rot_x += 5 * DEG_2_RAD;
+		mlx->params->roll += 5 * DEG_2_RAD;
 }
 
 static void params_zoom(int keycode, t_mlx *mlx)
 {
 	if(keycode == LSHIFT)
-		mlx->params->scale_factor += 2;
+		mlx->params->scale_factor += 5;
 	if (keycode == LCTRL)
-		mlx->params->scale_factor -= 2;
+		mlx->params->scale_factor -= 5;
 }
 
 static void params_translate(int keycode, t_mlx *mlx)
