@@ -63,6 +63,7 @@ norm:
 	norminette $(INCLUDE_PATH) $(LIBFT) srcs/
 
 instructions:
+	@printf "$(RE)(You need to have X11, XShm and bsd installed to run this software)"
 	@printf "\n$(CY)Usage: ./fdf [valid fdf file] (check project pdf for more info about fdf files)\n"
 	@printf "$(CY)Use WASD to move the camera on the x and y axis\n"
 	@printf "$(CY)Use Left Shift and Left Control to move the camera on the z axis\n"
