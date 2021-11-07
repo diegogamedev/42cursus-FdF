@@ -50,9 +50,10 @@ clean:
 fclean: clean
 		@printf "$(RE)\nSENDING FDF STRAIGHT TO HELL\n"
 		$(RM) $(NAME)
-		@printf "$(RE)\nDELETING .a FROM EXISTENCE\n"
+		@printf "$(RE)\nDELETING ALL .a FROM EXISTENCE\n"
 		make -C $(MLX) clean -s
 		make -C $(LIBFT) fclean -s
+		@printf "it is done..."
 
 re: fclean all
 

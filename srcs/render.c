@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:48:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/06 22:41:03 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:06:18 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	draw(t_mlx *data)
 	int	z;
 
 	z = 0;
-	ft_bzero(data->i->addr, data->i->bpp * (data->win_x * data->win_y));
+	ft_bzero(data->i->addr, (data->win_x * data->win_y) * (data->i->bpp / 8));
 	while (z < data->map->length_z)
 	{
 		x = 0;
@@ -99,6 +99,7 @@ void	init_mlx(t_map *map)
 	a.i->img = mlx_new_image(a.mlx_ptr, 1024, 720);
 	a.i->addr = mlx_get_data_addr(a.i->img, &a.i->bpp, &a.i->len, &a.i->end);
 	a.map = map;
+	a.params = malloc(sizeof(*a.params));
 	init_params(&a);
 	draw(&a);
 	mlx_expose_hook(a.win, draw, &a);

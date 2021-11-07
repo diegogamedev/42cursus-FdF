@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:49:06 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/06 22:48:13 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:01:47 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ void	rotate_y(t_vec3 *start, t_vec3 *end, double rad_ang)
 	float	a;
 	float	b;
 
-	a = start->x * cos(rad_ang) + start->z * sin(rad_ang);
+	a = start->x * cos(rad_ang) - start->z * sin(rad_ang);
 	b = start->x * sin(rad_ang) + start->z * cos(rad_ang);
 	start->x = a;
 	start->z = b;
-	a = end->x * cos(rad_ang) + end->z * sin(rad_ang);
+	a = end->x * cos(rad_ang) - end->z * sin(rad_ang);
 	b = end->x * sin(rad_ang) + end->z * cos(rad_ang);
 	end->x = a;
 	end->z = b;

@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 20:58:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/08/17 09:29:32 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/06 22:54:47 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void	*s, size_t n)
 	index = 0;
 	while (index < n)
 	{
-		c[index] = '\0';
+		c[index] = 0;
 		index++;
 	}
 }
