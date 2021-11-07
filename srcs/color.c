@@ -6,12 +6,11 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 21:31:00 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/02 23:36:51 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/06 22:47:39 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 int	create_trgb(int t, int r, int g, int b)
 {

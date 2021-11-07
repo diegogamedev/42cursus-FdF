@@ -6,12 +6,11 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:48:57 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/05 20:45:15 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/06 22:41:03 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 void	put_pixel_in_image(t_data *i, t_vec2 v)
 {
@@ -52,12 +51,12 @@ void	render(t_mlx *mlx, t_vec3 start, t_vec3 end)
 {
 	t_vec2	*temp;
 
-	rotate_x(&start, &end, 0 * M_PI / 180);
-	rotate_y(&start, &end, 0 * M_PI / 180);
-	rotate_z(&start, &end, 0 * M_PI / 180);
-	temp = get_projection(start, end);
-	scale(mlx, &temp[0], &temp[1]);
-	translate(&temp[0], &temp[1], mlx->win_x / 2, mlx->win_y / 2);
+	rotate_x(&start, &end, mlx->params->rot_x);
+	rotate_y(&start, &end, mlx->params->rot_y);
+	rotate_z(&start, &end, mlx->params->rot_z);
+	temp = get_projection(start, end, mlx, mlx->params->projection);
+	scale(mlx->params->scale_factor, &temp[0], &temp[1]);
+	translate(&temp[0], &temp[1], mlx->params->trans_x, mlx->params->trans_y);
 	bresenham(temp[0], temp[1], mlx);
 	free(temp);
 }
@@ -68,6 +67,7 @@ int	draw(t_mlx *data)
 	int	z;
 
 	z = 0;
+	ft_bzero(data->i->addr, data->i->bpp * (data->win_x * data->win_y));
 	while (z < data->map->length_z)
 	{
 		x = 0;
@@ -99,6 +99,7 @@ void	init_mlx(t_map *map)
 	a.i->img = mlx_new_image(a.mlx_ptr, 1024, 720);
 	a.i->addr = mlx_get_data_addr(a.i->img, &a.i->bpp, &a.i->len, &a.i->end);
 	a.map = map;
+	init_params(&a);
 	draw(&a);
 	mlx_expose_hook(a.win, draw, &a);
 	mlx_key_hook(a.win, key_events, &a);

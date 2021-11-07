@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:51:35 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/05 20:44:02 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/06 20:33:53 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ float	min(float a, float b)
 
 void	center_to_origin(t_map *map)
 {
-	int x;
-	int z;
+	int	x;
+	int	z;
 
 	z = 0;
 	while (z < map->length_z)

@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 14:09:06 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/04 11:33:20 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/06 22:02:06 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	free_mlx(t_mlx *mlx)
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win);
 	mlx_destroy_display(mlx->mlx_ptr);
 	free(mlx->mlx_ptr);
+	free(mlx->params);
 	write(1, "FdF terminated, have a nice day!\n", 34);
 	exit(0);
 }
 
 void	free_map(t_map *map, int width)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i <= width)
