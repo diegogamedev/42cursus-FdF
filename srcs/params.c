@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 22:02:42 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:30:45 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/07 14:28:35 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ float	factor_fit_screen(t_mlx *mlx)
 	float	factor;
 
 	x = mlx->win_x / mlx->map->width_x;
-	y = mlx->win_y / mlx->map->max_height_y;
+	if(mlx->map->max_height_y <= 0)
+		y = mlx->win_y;
+	else
+		y = mlx->win_y / mlx->map->max_height_y;
 	factor = min(x, y);
 	if (factor < 4)
 		factor = 2;
