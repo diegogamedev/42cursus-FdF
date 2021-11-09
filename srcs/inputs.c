@@ -6,7 +6,7 @@
 /*   By: dienasci <dienasci@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:18:47 by dienasci          #+#    #+#             */
-/*   Updated: 2021/11/07 11:30:35 by dienasci         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:01:39 by dienasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void	params_rotate(int keycode, t_mlx *mlx)
 	if (keycode == DOWN)
 		mlx->params->pitch += 5 * DEG_2_RAD;
 	if (keycode == LEFT)
-		mlx->params->roll -= 5 * DEG_2_RAD;
-	if (keycode == RIGHT)
 		mlx->params->roll += 5 * DEG_2_RAD;
+	if (keycode == RIGHT)
+		mlx->params->roll -= 5 * DEG_2_RAD;
 }
 
 static void	params_zoom(int keycode, t_mlx *mlx)
