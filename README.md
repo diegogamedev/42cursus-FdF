@@ -14,6 +14,9 @@ To use it, first run *make* to generate the executable, then use ./fdf together 
 **Controls**
 
 WASD to translate the camera on a 2D plane
+
 QE to perform a  yaw rotation on the projection
+
 Arrows to perform roll and pitch rotations on the projection
+
 Left Shift and Left Control to zoom in/out (a.k.a translate in the Z axis)
