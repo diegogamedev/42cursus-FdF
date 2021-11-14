@@ -3,6 +3,7 @@
 This is the 5th of 6 projects, from stage 1 of [42 Cursus](https://42.fr/en/homepage/ "42 Cursus"), this project was approved with 125 out of 100
 
 **Subject:**
+
 > This project is about creating a simplified graphic “wireframe” (“fils de fer” in French,
 hence the name of the project) representation of a relief landscape linking various points
 (x, y, z) via segments
@@ -11,6 +12,7 @@ To test this piece of software, you'll need all the requirements to run the [min
 To use it, first run *make* to generate the executable, then use ./fdf together with a relative path to an .fdf file, the folder [maps](https://github.com/diegogamedev/42cursus-FdF/tree/master/maps "maps") has a bunch of sample maps
 
 **Controls**
+
 WASD to translate the camera on a 2D plane
 QE to perform a  yaw rotation on the projection
 Arrows to perform roll and pitch rotations on the projection
